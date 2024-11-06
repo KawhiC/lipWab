@@ -1,10 +1,14 @@
 import streamlit as st
 import os
 import subprocess
+import pkg_resources
+installed_packages = pkg_resources.working_set
+installed = [f"{pkg.key}=={pkg.version}" for pkg in installed_packages]
+
 
 # 设置标题
 st.title("嘴唇语音处理")
-
+st.success(installed)
 # 上传视频文件
 uploaded_video = st.file_uploader("上传视频文件", type=["mp4", "avi", "mov"])
 if uploaded_video is not None:
