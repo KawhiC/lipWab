@@ -39,5 +39,3 @@ if uploaded_video is not None and uploaded_audio is not None:
         st.video(result_video_path)
     else:
         st.error("结果视频未生成，请检查代码和文件路径。")
-
-
