@@ -3,6 +3,7 @@
 #opencv-contrib-python>=4.2.0.34
 #opencv-python==4.1.0.25
 streamlit
+pandas
 numpy
 librosa
 opencv-python
