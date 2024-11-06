@@ -2,6 +2,11 @@ import streamlit as st
 import os
 import sys
 from inference import parse_args, main
+ffmpeg_relative_path = r".\ffmpeg-7.1-full_build\bin"
+ffmpeg_absolute_path = os.path.abspath(ffmpeg_relative_path)
+
+# 将绝对路径添加到 PATH
+os.environ["PATH"] = f"{os.environ['PATH']};{ffmpeg_absolute_path}"
 
 # 设置标题
 st.title("嘴唇语音处理")
