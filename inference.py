@@ -1,4 +1,6 @@
 from os import listdir, path
+import sys
+print(sys.path)
 import numpy as np
 import scipy, cv2, os, sys, argparse, audio
 import json, subprocess, random, string
