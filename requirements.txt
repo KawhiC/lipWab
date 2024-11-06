@@ -4,7 +4,7 @@
 #opencv-python==4.1.0.25
 streamlit
 setuptools
-numpy>=1.24.0
+numpy==1.24.0
 librosa
 opencv-python
 opencv-contrib-python
