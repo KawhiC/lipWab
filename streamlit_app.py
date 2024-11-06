@@ -8,7 +8,7 @@ installed = [f"{pkg.key}=={pkg.version}" for pkg in installed_packages]
 
 # 设置标题
 st.title("嘴唇语音处理")
-st.success(installed)
+
 # 上传视频文件
 uploaded_video = st.file_uploader("上传视频文件", type=["mp4", "avi", "mov"])
 if uploaded_video is not None:
@@ -44,7 +44,7 @@ if uploaded_video is not None and uploaded_audio is not None:
     else:
         st.error("处理失败，请检查输出信息。")
         st.text(result.stderr)
-
+    st.success(installed)
     # 检查结果文件是否存在，并展示结果视频
     result_video_path = "results/result_voice.mp4"
     if os.path.exists(result_video_path):
