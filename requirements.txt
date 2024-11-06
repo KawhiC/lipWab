@@ -3,7 +3,7 @@
 #opencv-contrib-python>=4.2.0.34
 #opencv-python==4.1.0.25
 setuptools
-numpy==1.22.4
+numpy>=1.22.4
 librosa==0.8.1
 opencv-python
 opencv-contrib-python
