@@ -4,7 +4,7 @@
 #opencv-python==4.1.0.25
 setuptools
 numpy>=1.22.4
-librosa==0.8.1
+librosa
 opencv-python
 opencv-contrib-python
 torch
