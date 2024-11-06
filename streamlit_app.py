@@ -28,12 +28,11 @@ if uploaded_audio is not None:
 
 # 设置命令和参数
 command = [
-    'python', 'inference.py',
+    sys.executable, 'inference.py',  # Use the current Python executable to run the script
     '--checkpoint_path', 'wav2lip_gan.pth',
     '--face', 'video.mp4',
     '--audio', 'audio.mp3'
 ]
-
 # 当视频和音频文件都上传后，执行命令
 if uploaded_video is not None and uploaded_audio is not None:
     with st.spinner("正在处理，请稍候..."):
