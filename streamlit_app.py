@@ -28,7 +28,7 @@ if uploaded_audio is not None:
 
 # 设置命令和参数
 command = [
-    sys.executable, 'inference.py',  # Use the current Python executable to run the script
+    'python', 'inference.py',
     '--checkpoint_path', 'wav2lip_gan.pth',
     '--face', 'video.mp4',
     '--audio', 'audio.mp3'
