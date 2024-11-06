@@ -3,6 +3,9 @@ import numpy as np
 import os
 import subprocess
 import pkg_resources
+
+import sys
+from inference import main
 installed_packages = pkg_resources.working_set
 installed = [f"{pkg.key}=={pkg.version}" for pkg in installed_packages]
 
@@ -36,7 +39,11 @@ command = [
 # 当视频和音频文件都上传后，执行命令
 if uploaded_video is not None and uploaded_audio is not None:
     with st.spinner("正在处理，请稍候..."):
-        result = subprocess.run(command, capture_output=True, text=True)
+        r# 模拟命令行参数
+        sys.argv = ['inference.py', '--checkpoint_path', 'wav2lip_gan.pth', '--face', 'test.mp4', '--audio', '3s.mp3']
+
+        # 调用 main 函数，它会像从命令行调用一样解析 sys.argv
+        result = main()
 
     # 显示输出和错误信息
     if result.returncode == 0:
