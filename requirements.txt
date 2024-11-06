@@ -7,7 +7,6 @@ beautifulsoup4==4.12.3
 bleach==6.2.0
 blinker==1.8.2
 cachetools==5.5.0
-certifi @ file:///C:/b/abs_1fw_exq1si/croot/certifi_1725551736618/work/certifi
 cffi==1.17.1
 charset-normalizer==3.4.0
 click==8.1.7
