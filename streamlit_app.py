@@ -6,11 +6,8 @@ import os
 import subprocess
 
 
-# 获取当前工作目录
-current_path = os.getcwd()
-
-# 使用 Streamlit 打印当前工作目录
-st.text(f"当前工作目录: {current_path}")
+# 打印当前的 PATH 环境变量
+st.text(f"当前 PATH: {os.environ['PATH']}")
 
 # 假设 ffmpeg 位于项目的 'ffmpeg-7.1-full_build/bin' 路径下
 ffmpeg_path = "/mount/src/lipwab/ffmpeg-7.1-full_build/bin"
@@ -18,12 +15,15 @@ ffmpeg_path = "/mount/src/lipwab/ffmpeg-7.1-full_build/bin"
 # 动态添加 ffmpeg 路径到 PATH 环境变量
 os.environ["PATH"] += os.pathsep + ffmpeg_path
 
+# 打印更新后的 PATH
+st.text(f"更新后的 PATH: {os.environ['PATH']}")
+
 # 运行 ffmpeg 命令
 try:
     result = subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     st.success("ffmpeg 已成功运行！")
-    st.text(result.stdout.decode())
-    st.text(result.stderr.decode())  # 如果有错误输出，也可以显示出来
+    st.text(result.stdout.decode())  # 打印输出
+    st.text(result.stderr.decode())  # 打印错误输出（如果有的话）
 except subprocess.CalledProcessError as e:
     st.error(f"ffmpeg 运行失败: {e}")
     st.text(e.stdout.decode())
