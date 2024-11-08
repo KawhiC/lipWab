@@ -245,12 +245,14 @@ def main(args):
 	print("Length of mel chunks: {}".format(len(mel_chunks)))
 
 	full_frames = full_frames[:len(mel_chunks)]
-
+	print("1")
 	batch_size = args.wav2lip_batch_size
+	print("2")
 	gen = datagen(args, full_frames.copy(), mel_chunks)
-
+	print("3")
 	for i, (img_batch, mel_batch, frames, coords) in enumerate(tqdm(gen, 
 											total=int(np.ceil(float(len(mel_chunks))/batch_size)))):
+		print("4")
 		if i == 0:
 			model = load_model(args.checkpoint_path)
 			print ("Model loaded")
@@ -258,7 +260,7 @@ def main(args):
 			frame_h, frame_w = full_frames[0].shape[:-1]
 			out = cv2.VideoWriter('temp/result.avi', 
 									cv2.VideoWriter_fourcc(*'DIVX'), fps, (frame_w, frame_h))
-
+		print("5")
 		img_batch = torch.FloatTensor(np.transpose(img_batch, (0, 3, 1, 2))).to(device)
 		mel_batch = torch.FloatTensor(np.transpose(mel_batch, (0, 3, 1, 2))).to(device)
 
