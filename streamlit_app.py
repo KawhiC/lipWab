@@ -20,7 +20,7 @@ st.text(f"更新后的 PATH: {os.environ['PATH']}")
 
 # 运行 ffmpeg 命令
 try:
-    result = subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(["ffmpeg.exe", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     st.success("ffmpeg 已成功运行！")
     st.text(result.stdout.decode())  # 打印输出
     st.text(result.stderr.decode())  # 打印错误输出（如果有的话）
