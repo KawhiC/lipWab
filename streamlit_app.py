@@ -61,7 +61,7 @@ if uploaded_audio is not None:
 if uploaded_video is not None and uploaded_audio is not None:
     with st.spinner("正在处理，请稍候..."):
         # 模拟命令行参数
-        sys.argv = ['inference.py', '--checkpoint_path', 'wav2lip_gan.pth', '--face', 'test.mp4', '--audio', '3s.mp3']
+        sys.argv = ['inference.py', '--checkpoint_path', 'wav2lip_gan.pth', '--face', 'video.mp4', '--audio', 'audio.mp3']
         args = parse_args()
         # 调用 main 函数，它会像从命令行调用一样解析 sys.argv
         main(args)
