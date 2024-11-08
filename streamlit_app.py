@@ -2,11 +2,29 @@ import streamlit as st
 import os
 import sys
 from inference import parse_args, main
-ffmpeg_relative_path = r".\ffmpeg-7.1-full_build\bin"
-ffmpeg_absolute_path = os.path.abspath(ffmpeg_relative_path)
+import os
+import subprocess
 
-# 将绝对路径添加到 PATH
-os.environ["PATH"] = f"{os.environ['PATH']};{ffmpeg_absolute_path}"
+
+# 获取当前工作目录
+current_path = os.getcwd()
+
+# 使用 Streamlit 打印当前工作目录
+st.text(f"当前工作目录: {current_path}")
+
+# 动态添加 ffmpeg 路径
+os.environ["PATH"] += os.pathsep + "/app/your_project_path/ffmpeg-7.1-full_build/bin"
+
+# 运行 ffmpeg 命令
+try:
+    result = subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    st.success("ffmpeg 已成功运行！")
+    st.text(result.stdout.decode())
+    st.text(result.stderr.decode())  # 如果有错误输出，也可以显示出来
+except subprocess.CalledProcessError as e:
+    st.error(f"ffmpeg 运行失败: {e}")
+    st.text(e.stdout.decode())
+    st.text(e.stderr.decode())
 
 # 设置标题
 st.title("嘴唇语音处理")
