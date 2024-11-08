@@ -12,8 +12,11 @@ current_path = os.getcwd()
 # 使用 Streamlit 打印当前工作目录
 st.text(f"当前工作目录: {current_path}")
 
-# 动态添加 ffmpeg 路径
-os.environ["PATH"] += os.pathsep + "/app/your_project_path/ffmpeg-7.1-full_build/bin"
+# 假设 ffmpeg 位于项目的 'ffmpeg-7.1-full_build/bin' 路径下
+ffmpeg_path = "/mount/src/lipwab/ffmpeg-7.1-full_build/bin"
+
+# 动态添加 ffmpeg 路径到 PATH 环境变量
+os.environ["PATH"] += os.pathsep + ffmpeg_path
 
 # 运行 ffmpeg 命令
 try:
