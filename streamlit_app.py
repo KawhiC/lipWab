@@ -25,7 +25,7 @@ st.text(f"更新后的 PATH: {os.environ['PATH']}")
 
 
 
-# 运行 ffmpeg 命令
+""" # 运行 ffmpeg 命令
 try:
     result = subprocess.run(["/mount/src/lipwab/ffmpeg-7.1-full_build/bin/ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     st.success("ffmpeg 已成功运行！")
@@ -34,7 +34,7 @@ try:
 except subprocess.CalledProcessError as e:
     st.error(f"ffmpeg 运行失败: {e}")
     st.text(e.stdout.decode())
-    st.text(e.stderr.decode())
+    st.text(e.stderr.decode()) """
 
 # 设置标题
 st.title("嘴唇语音处理")
