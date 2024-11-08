@@ -11,16 +11,23 @@ st.text(f"当前 PATH: {os.environ['PATH']}")
 
 # 假设 ffmpeg 位于项目的 'ffmpeg-7.1-full_build/bin' 路径下
 ffmpeg_path = "/mount/src/lipwab/ffmpeg-7.1-full_build/bin"
+# 输出当前工作目录和 ffmpeg 路径
+st.text(f"当前工作目录: {os.getcwd()}")
 
+st.text(f"ffmpeg 路径: {ffmpeg_path}")
+st.text(f"ffmpeg 是否存在: {os.path.exists(ffmpeg_path)}")
 # 动态添加 ffmpeg 路径到 PATH 环境变量
 os.environ["PATH"] += os.pathsep + ffmpeg_path
 
 # 打印更新后的 PATH
 st.text(f"更新后的 PATH: {os.environ['PATH']}")
 
+
+
+
 # 运行 ffmpeg 命令
 try:
-    result = subprocess.run(["ffmpeg.exe", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = subprocess.run(["ffmpeg", "-version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     st.success("ffmpeg 已成功运行！")
     st.text(result.stdout.decode())  # 打印输出
     st.text(result.stderr.decode())  # 打印错误输出（如果有的话）
